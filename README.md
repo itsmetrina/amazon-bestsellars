@@ -59,27 +59,6 @@ This repository is dedicated to my personal React practice, which I followed alo
     };
     ```
 
-### Props and Data Flow
-- **Props**: Pass data from parent to child components.
-  - Access props directly:
-    ```jsx
-    const Book = (props) => {
-      return <p>{props.message}</p>;
-    };
-
-    // Usage
-    <Book message="Hello World!" />
-    ```
-  - Destructure props:
-    ```jsx
-    const Book = ({ message }) => {
-      return <p>{message}</p>;
-    };
-
-    // Usage
-    <Book message="Hello World!" />
-    ```
-
 ### Props Handling Examples
 
 - **Props**: Pass data from parent to child components.
