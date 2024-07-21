@@ -44,7 +44,8 @@ const EventExample = () => {
 	};
 	return (
 		<section>
-			<form onSubmit={handleFormSubmission}>
+			{/* <form onSubmit={handleFormSubmission}> */}
+			<form onSubmit={(e)=>console.log(e.target.value)}>
 				<h2>Form</h2>
 				<input type='text' name='Example' onChange={handleFormInpt} style={{ margin: '1rem 0' }} />
 				<button type='submit'>Submit FOrm</button>
