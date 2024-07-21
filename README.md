@@ -63,22 +63,116 @@ This repository is dedicated to my personal React practice, which I followed alo
 - **Props**: Pass data from parent to child components.
   - Access props directly:
     ```jsx
-    const ChildComponent = (props) => {
+    const Book = (props) => {
       return <p>{props.message}</p>;
     };
 
     // Usage
-    <ChildComponent message="Hello World!" />
+    <Book message="Hello World!" />
     ```
   - Destructure props:
     ```jsx
-    const ChildComponent = ({ message }) => {
+    const Book = ({ message }) => {
       return <p>{message}</p>;
     };
 
     // Usage
-    <ChildComponent message="Hello World!" />
+    <Book message="Hello World!" />
     ```
+
+### Props Handling Examples
+
+- **Props**: Pass data from parent to child components.
+  - Access props directly: (`props.obj`):
+	```jsx
+	// Parent Component
+	const BookList = () => {
+		return <Book name="John" age={30} />;
+	};
+
+	// Child Component
+	const Book = (props) => {
+		return (
+			<div>
+				<p>Name: {props.name}</p>
+				<p>Age: {props.age}</p>
+			</div>
+		);
+	};
+	```
+
+	#### Destructure props (`const { obj1, obj2 } = props`):
+	```jsx
+	// Parent Component
+	const BookList = () => {
+	const data = {
+		title: 'Hello World',
+		content: 'This is a sample content.'
+	};
+
+	return <Book {...data} />;
+	};
+
+	// Child Component
+	const Book = ({ title, content }) => {
+	return (
+		<div>
+		<h2>{title}</h2>
+		<p>{content}</p>
+		</div>
+	);
+	};
+	```
+
+	#### Using function parameters destructuring (`({ obj1, obj2 }) => ...`):
+	```jsx
+	// Parent Component
+	const BookList = () => {
+	const userDetails = {
+		name: 'Alice',
+		age: 25,
+		location: 'New York'
+	};
+
+	return <Book userDetails={userDetails} />;
+	};
+
+	// Child Component
+	const Book = ({ userDetails }) => {
+	const { name, age, location } = userDetails;
+
+	return (
+		<div>
+		<p>Name: {name}</p>
+		<p>Age: {age}</p>
+		<p>Location: {location}</p>
+		</div>
+	);
+	};
+	```
+
+	#### Special prop: children for rendering content between component tags:
+	```jsx
+	// Parent Component
+	const BookList = () => {
+	return (
+		<Book>
+		<p>This content will be rendered as children.</p>
+		<button>Click Me</button>
+		</Book>
+	);
+	};
+
+	// Child Component
+	const Book = (props) => {
+	return (
+		<div>
+		<h2>Child Component</h2>
+		<div>{props.children}</div>
+		</div>
+	);
+	};
+	```
 
 ### Handling Data
 - **Arrays**: Use `key` for efficient rendering in lists. Prefer using item `id` for dynamic lists.
