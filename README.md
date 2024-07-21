@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+## React Practice Repository
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository is dedicated to my personal React practice, which I followed along with a tutorial from FreeCodeCamp. The purpose of this repository is to improve my understanding and skills in React development.
 
-## Available Scripts
+## What I've Learned in React
 
-In the project directory, you can run:
+### React Basics
+- **React**: JavaScript library for building user interfaces.
+- **Developers**: Developed and maintained by Facebook (Meta).
+- **Components**: Fundamental building blocks in React.
 
-### `npm start`
+### Key Concepts
+- **Virtual DOM**: Efficiently updates changes in the actual DOM, reducing rendering time.
+- **JSX**: JavaScript syntax extension, combining JavaScript and XML/HTML.
+  - Use `className` instead of `class`.
+  - Follow camelCase naming convention.
+  - Always close tags.
+  - Commenting in JSX (`{/* */}`).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Components and Structure
+- **Nesting Components**: Structuring UI with nested components.
+  ```jsx
+  // Example of nesting components
+  const App = () => {
+    return (
+      <div>
+        <Header />
+        <MainContent />
+        <Footer />
+      </div>
+    );
+  };
+  ```
+- **React Developer Tools**: Browser extension for debugging React applications.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Handling Assets
+- **Public vs Src Folder**: Assets in the `public` folder are publicly accessible but not optimized. Prefer `src` for optimized assets in larger projects.
 
-### `npm test`
+### Styling in React
+- **CSS in JSX**: Inline styles with JavaScript objects.
+  - Example:
+    ```jsx
+    const styles = {
+      color: '#617d98',
+      fontSize: '0.75rem',
+      marginTop: '0.75rem'
+    };
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    const Author = () => {
+      return (
+        <h4 style={styles}>Saksham Garg</h4>
+      );
+    };
+    ```
 
-### `npm run build`
+### Props and Data Flow
+- **Props**: Pass data from parent to child components.
+  - Access props directly:
+    ```jsx
+    const ChildComponent = (props) => {
+      return <p>{props.message}</p>;
+    };
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    // Usage
+    <ChildComponent message="Hello World!" />
+    ```
+  - Destructure props:
+    ```jsx
+    const ChildComponent = ({ message }) => {
+      return <p>{message}</p>;
+    };
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    // Usage
+    <ChildComponent message="Hello World!" />
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Handling Data
+- **Arrays**: Use `key` for efficient rendering in lists. Prefer using item `id` for dynamic lists.
+  ```jsx
+  const itemList = ['Item 1', 'Item 2', 'Item 3'];
 
-### `npm run eject`
+  const ListComponent = () => {
+    return (
+      <ul>
+        {itemList.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    );
+  };
+  ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Events and State Management
+- **Events**: Handling user interactions and events in React components.
+  ```jsx
+  const ButtonComponent = () => {
+    const handleClick = () => {
+      alert('Button clicked!');
+    };
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    return <button onClick={handleClick}>Click Me</button>;
+  };
+  ```
+- **Prop Drilling**: Passing props down through multiple layers.
+  - Alternative: Context API, Redux, or other state management solutions for more complex applications.

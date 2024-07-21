@@ -1,14 +1,31 @@
+import img1 from './images/book1.jpg';
+import img2 from './images/book2.jpg';
+import img3 from './images/book3.jpg';
+import img4 from './images/book4.jpg';
+
 export const books = [
     {
         id: 1,
-        author: 'Saksham Garg',
-        title: 'Samsara: Enter The Valley Of The Gods',
-        img: './images/book1.jpg'
+        author: "Saksham Garg",
+        title: "Samsara: Enter The Valley Of The Gods",
+        img: img1
     },
     {
         id: 2,
-        author: 'J.K.Rowling',
+        author: "Alex Michaelides",
+        title: "THE SILENT PATIENT [Paperback] Michaelides, Alex",
+        img: img2
+    },
+    {
+        id: 3,
+        author: "J.K.Rowling",
         title: "Harry Potter and the Philosopher's Stone",
-        img: 'https://images-eu.ssl-images-amazon.com/images/I/81m9fP+LIPL._UX300__PJku-sticker-v8,TopRight,0,-50_AC_UL600_SR600,400_.jpg'
+        img: img3
+    },
+    {
+        id: 4,
+        author: "Akshat Gupta",
+        title: "Hidden Hindu, The (Book 1)",
+        img: img4
     }
 ];
