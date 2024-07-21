@@ -21,13 +21,11 @@ This repository is dedicated to my personal React practice, which I followed alo
 - **Nesting Components**: Structuring UI with nested components.
   ```jsx
   // Example of nesting components
-  const App = () => {
+  const BookList = () => {
     return (
-      <div>
-        <Header />
-        <MainContent />
-        <Footer />
-      </div>
+      <>
+        <Book />
+      </>
     );
   };
   ```
@@ -39,6 +37,14 @@ This repository is dedicated to my personal React practice, which I followed alo
 ### Styling in React
 - **CSS in JSX**: Inline styles with JavaScript objects.
   - Example:
+    ```jsx
+	const Author = () => {
+      return (
+        <h4 style={{color: '#617d98', fontSize: '0.75rem', marginTop: '0.75rem'}}>Saksham Garg</h4>
+      );
+    };
+	```
+	- Alternative: Define styles as constants.
     ```jsx
     const styles = {
       color: '#617d98',
