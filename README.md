@@ -66,15 +66,15 @@ This repository is dedicated to my personal React practice, which I followed alo
 	```jsx
 	// Parent Component
 	const BookList = () => {
-		return <Book name="John" age={30} />;
+		return <Book title="Samsara: Enter The Valley Of The Gods" author="Saksham Garg" />;
 	};
 
 	// Child Component
 	const Book = (props) => {
 		return (
 			<div>
-				<p>Name: {props.name}</p>
-				<p>Age: {props.age}</p>
+				<p>Title: {props.title}</p>
+				<p>Author: {props.author}</p>
 			</div>
 		);
 	};
@@ -84,22 +84,22 @@ This repository is dedicated to my personal React practice, which I followed alo
 	```jsx
 	// Parent Component
 	const BookList = () => {
-	const data = {
-		title: 'Hello World',
-		content: 'This is a sample content.'
-	};
+		const data = {
+			title: 'Samsara: Enter The Valley Of The Gods',
+			author: 'Saksham Garg.'
+		};
 
-	return <Book {...data} />;
+		return <Book {...data} />;
 	};
 
 	// Child Component
-	const Book = ({ title, content }) => {
-	return (
-		<div>
-		<h2>{title}</h2>
-		<p>{content}</p>
-		</div>
-	);
+	const Book = ({ title, author }) => {
+		return (
+			<div>
+				<h2>{title}</h2>
+				<p>{author}</p>
+			</div>
+		);
 	};
 	```
 
@@ -107,26 +107,25 @@ This repository is dedicated to my personal React practice, which I followed alo
 	```jsx
 	// Parent Component
 	const BookList = () => {
-	const userDetails = {
-		name: 'Alice',
-		age: 25,
-		location: 'New York'
-	};
+		const bookDetails = {
+			title: 'Samsara: Enter The Valley Of The Gods',
+			author: 'Saksham Garg.'
+		};
 
-	return <Book userDetails={userDetails} />;
+		return <Book bookDetails={bookDetails} />;
 	};
 
 	// Child Component
-	const Book = ({ userDetails }) => {
-	const { name, age, location } = userDetails;
+	const Book = ({ bookDetails }) => {
+		const { title, author } = bookDetails;
 
-	return (
-		<div>
-		<p>Name: {name}</p>
-		<p>Age: {age}</p>
-		<p>Location: {location}</p>
-		</div>
-	);
+		return (
+			<div>
+				<p>Name: {title}</p>
+				<p>Age: {age}</p>
+				<p>Location: {location}</p>
+			</div>
+		);
 	};
 	```
 
@@ -134,22 +133,22 @@ This repository is dedicated to my personal React practice, which I followed alo
 	```jsx
 	// Parent Component
 	const BookList = () => {
-	return (
-		<Book>
-		<p>This content will be rendered as children.</p>
-		<button>Click Me</button>
-		</Book>
-	);
+		return (
+			<Book>
+				<p>This content will be rendered as children.</p>
+				<button>Click Me</button>
+			</Book>
+		);
 	};
 
 	// Child Component
 	const Book = (props) => {
-	return (
-		<div>
-		<h2>Child Component</h2>
-		<div>{props.children}</div>
-		</div>
-	);
+		return (
+			<div>
+				<h2>Child Component</h2>
+				<div>{props.children}</div>
+			</div>
+		);
 	};
 	```
 
@@ -158,7 +157,7 @@ This repository is dedicated to my personal React practice, which I followed alo
   ```jsx
   const itemList = ['Item 1', 'Item 2', 'Item 3'];
 
-  const ListComponent = () => {
+  const BookList = () => {
     return (
       <ul>
         {itemList.map((item, index) => (
